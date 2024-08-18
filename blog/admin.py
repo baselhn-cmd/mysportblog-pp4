@@ -1,15 +1,16 @@
 from django.contrib import admin
 from .models import Post, Comment
+from django_summernote.admin import SummernoteModelAdmin
+
 
 @admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'created_on', 'status')
-    list_filter = ('status', 'created_on')
-    search_fields = ('title', 'content')
+class PostAdmin(SummernoteModelAdmin):
+
+    list_display = ('title', 'slug', 'status')
+    search_fields = ['title']
+    list_filter = ('status',)
     prepopulated_fields = {'slug': ('title',)}
-    raw_id_fields = ('author',)
-    date_hierarchy = 'created_on'
-    ordering = ('status', 'created_on')
+    summernote_fields = ('content',)
 
 
 # Register your models here.
