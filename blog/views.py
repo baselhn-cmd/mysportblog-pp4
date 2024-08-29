@@ -3,7 +3,7 @@ from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 
 # Create your views here.
 class PostList(generic.ListView):
@@ -85,3 +85,33 @@ def comment_delete(request, slug, comment_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+class AddPost(generic.CreateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'blog/add_post.html'
+
+    def form_valid(self, form):
+        form.instance.blogger = self.request.user
+        return super().form_valid(form)
+
+class EditPost(generic.UpdateView):
+    model = Post
+    template_name = 'blog/edit_post.html'
+    fields = (
+        'post_title', 'post_slug', 'post_image', 'excerpt', 'post_content'
+        )
+
+
+def add_post(request):
+    from django.contrib.auth.models import User
+    user = User.objects.get(username='CodeInstitute')
+    from django.contrib.auth.models import Permission
+    permission = Permission.objects.get(codename='add_post')
+    user.user_permissions.add(permission)
+
+    from django.contrib.auth.models import User
+    user = User.objects.get(username='James')
+    from django.contrib.auth.models import Permission
+    permission = Permission.objects.get(codename='add_post')
+    user.user_permissions.add(permission)

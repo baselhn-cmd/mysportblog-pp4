@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 my-5">
+        {% if user.is_authenticated %}
+        {% if user.id == post.blogger.id %}
+        <div class="page-header">
+            <h1>Update Post</h1>
+        </div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form|crispy }}
+            <button class="btn btn-primary" type="submit">Update</button>
+        </form>
+        <br>
+    </div>
+    {% else %}
+    Access denied.
+    {% endif %}
+    {% else %}
+
+    Access denied.
+
+    {% endif %}
+</div>
+{% endblock content %}
