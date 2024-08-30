@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse
-from django.views import generic
+from django.views import generic, View
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import User, Permission
 from django.contrib import messages
@@ -8,29 +8,17 @@ from .models import Post, Comment
 from .forms import CommentForm, PostForm
 from django.urls import reverse_lazy
 
-# Create your views here.
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "blog/index.html"
     paginate_by = 6
 
 def post_detail(request, slug):
-    """
-    Display an individual :model:`blog.Post`.
-
-    **Context**
-
-    ``post``
-        An instance of :model:`blog.Post`.
-
-    **Template:**
-
-    :template:`blog/post_detail.html`
-    """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
+    
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -38,27 +26,19 @@ def post_detail(request, slug):
             comment.author = request.user
             comment.post = post
             comment.save()
-            messages.add_message(
-                request, messages.SUCCESS,
-                'Comment submitted and awaiting approval'
-            )
+            messages.add_message(request, messages.SUCCESS, 'Comment submitted and awaiting approval')
 
     comment_form = CommentForm()
     return render(request, "blog/post_detail.html", {
         "post": post,
-    "comments": comments,
-    "comment_count": comment_count,
-    "comment_form": comment_form,
-    },)
+        "comments": comments,
+        "comment_count": comment_count,
+        "comment_form": comment_form,
+    })
 
 def comment_edit(request, slug, comment_id):
-    """
-    view to edit comments
-    """
     if request.method == "POST":
-
-        queryset = Post.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
+        post = get_object_or_404(Post, slug=slug)
         comment = get_object_or_404(Comment, pk=comment_id)
         comment_form = CommentForm(data=request.POST, instance=comment)
 
@@ -74,11 +54,7 @@ def comment_edit(request, slug, comment_id):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 def comment_delete(request, slug, comment_id):
-    """
-    view to delete comment
-    """
-    queryset = Post.objects.filter(status=1)
-    post = get_object_or_404(queryset, slug=slug)
+    post = get_object_or_404(Post, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
 
     if comment.author == request.user:
@@ -103,24 +79,46 @@ class EditPost(generic.UpdateView):
     template_name = 'blog/edit_post.html'
     fields = (
         'post_title', 'post_slug', 'post_image', 'excerpt', 'post_content'
-        )
+    )
+    
+    def get_object(self, queryset=None):
+        slug = self.kwargs.get('slug')
+        return get_object_or_404(Post, slug=slug)
 
 class DeletePost(generic.DeleteView):
     model = Post
     template_name = 'blog/delete_post.html'
     success_url = reverse_lazy('home')
+    
+    def get_object(self, queryset=None):
+        slug = self.kwargs.get('slug')
+
+class PostLike(View):
+    def post(self, request, slug, *args, **kwargs):
+        post = get_object_or_404(Post, slug=slug)
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 @login_required
 @permission_required('blog.add_post', raise_exception=True)
 def add_post(request):
-    from django.contrib.auth.models import User
-    user = User.objects.get(username='CodeInstitute')
-    from django.contrib.auth.models import Permission
-    permission = Permission.objects.get(codename='add_post')
-    user.user_permissions.add(permission)
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.blogger = request.user
+            post.save()
+            messages.add_message(request, messages.SUCCESS, 'Post added successfully!')
+            return HttpResponseRedirect(reverse('home'))
+    else:
+        form = PostForm()
 
-    from django.contrib.auth.models import User
-    user = User.objects.get(username='James')
-    from django.contrib.auth.models import Permission
+    return render(request, 'blog/add_post.html', {'form': form})
+
+def assign_add_post_permission(user):
     permission = Permission.objects.get(codename='add_post')
     user.user_permissions.add(permission)
