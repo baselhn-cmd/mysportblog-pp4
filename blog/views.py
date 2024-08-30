@@ -78,7 +78,7 @@ class EditPost(generic.UpdateView):
     model = Post
     template_name = 'blog/edit_post.html'
     fields = (
-        'post_title', 'post_slug', 'post_image', 'excerpt', 'post_content'
+        'title', 'slug', 'excerpt', 'content'
     )
     
     def get_object(self, queryset=None):
