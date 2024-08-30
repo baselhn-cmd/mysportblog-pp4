@@ -15,6 +15,16 @@ class PostForm(forms.ModelForm):
         widgets = {
             'content': SummernoteWidget(),
         }
+    class Meta:
+        model = Post
+        fields = fields = (
+            'title',
+            'slug',
+            'excerpt',
+            'content',
+            'status'
+        )
+
 
 
 class CommentForm(forms.ModelForm):

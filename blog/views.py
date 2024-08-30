@@ -1,9 +1,12 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
+from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.models import User, Permission
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
+from django.urls import reverse_lazy
 
 # Create your views here.
 class PostList(generic.ListView):
@@ -102,7 +105,13 @@ class EditPost(generic.UpdateView):
         'post_title', 'post_slug', 'post_image', 'excerpt', 'post_content'
         )
 
+class DeletePost(generic.DeleteView):
+    model = Post
+    template_name = 'blog/delete_post.html'
+    success_url = reverse_lazy('home')
 
+@login_required
+@permission_required('blog.add_post', raise_exception=True)
 def add_post(request):
     from django.contrib.auth.models import User
     user = User.objects.get(username='CodeInstitute')
