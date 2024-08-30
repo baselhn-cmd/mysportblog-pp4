@@ -13,8 +13,8 @@ class TestBlogViews(TestCase):
             email="test@test.com"
         )
         self.post = Post(post_title="Blog post_title", blogger=self.user,
-                         post_slug="blog-post_title", excerpt="Blog excerpt",
-                         post_content="Blog post_content", post_status=1)
+                            post_slug="blog-post_title", excerpt="Blog excerpt",
+                            post_content="Blog post_content", post_status=1)
         self.post.save()
 
     def test_render_post_detail_page_with_comment_form(self):
