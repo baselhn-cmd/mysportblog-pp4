@@ -7,7 +7,7 @@ Stay ahead of the game with My Sport Blog News, your go-to source for the latest
 
 ## Table of Contents
 
-- [My sport blog](#amy-sport-blog)
+- [My sport blog](#my-sport-blog)
   - [Table of Contents](#table-of-contents)
   - [Wireframes](#wireframes)
   - [Post and Comment Relationship Diagram](#post-and-comment-relationship-diagram)
