@@ -27,3 +27,12 @@ Stay ahead of the game with My Sport Blog News, your go-to source for the latest
     - [Media](#media)
     - [Libraries \& Frameworks](#libraries--frameworks)
     - [Acknowledgements](#acknowledgements)
+  
+## Wireframes
+
+- At the start of the project, I created some basic wireframes to visualize the design I had in mind for the site. I used moqups.com to develop these wireframes, covering the home page, sign-in, signup, and about pages.
+
+![home](static/images/wireframe1.png)
+![about](static/images/wireframe2.png)
+![signin](static/images/wireframe1.png)
+![signup](static/images/wireframe2.png)
