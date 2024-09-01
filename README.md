@@ -36,3 +36,15 @@ Stay ahead of the game with My Sport Blog News, your go-to source for the latest
 ![about](static/images/wireframe2.png)
 ![signin](static/images/wireframe1.png)
 ![signup](static/images/wireframe2.png)
+
+## Post and Comment Relationship Diagram
+
+- Initial plan
+
+![post and comment relationship model](static/images/post:comment_relationship.png)
+
+![post model](static/images/post-model.png)
+
+![comment model](static/images/comment-model.png)
+
+## User Stories
