@@ -89,5 +89,5 @@ Stay ahead of the game with My Sport Blog News, your go-to source for the latest
 <details><summary>Pagination</summary>
 
 ![Pagination](static/images/next.png)
-(static/images/prev.png)
+![Pagination](static/images/prev.png)
 </details>
