@@ -147,7 +147,7 @@ This intuitive feature keeps users informed about their current login state, ens
 
 The project leverages a range of technologies to create a robust and scalable web application. Here's a breakdown of the technologies used:
 
-# Frontend
+### Frontend
 HTML: Provides the structure and content of the site
 CSS: Styles the site using Bootstrap and Google Fonts
 JavaScript: Links buttons to functionality and enhances user interaction
