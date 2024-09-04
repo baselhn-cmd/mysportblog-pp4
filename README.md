@@ -84,10 +84,24 @@ Stay ahead of the game with My Sport Blog News, your go-to source for the latest
 
 ## Features
 
-- Pagination - The posts are paginated so that the user can view 6 posts per page. There is a link to the next page at the bottom of the page. When the user is not on the first page of listings, there is a link to the previous page.
+- Pagination  The posts are paginated so that the user can view 6 posts per page. There is a link to the next page at the bottom of the page. When the user is not on the first page of listings, there is a link to the previous page.
 
 <details><summary>Pagination</summary>
 
 ![Pagination](static/images/next.png)
 ![Pagination](static/images/prev.png)
+</details>
+
+- Navbar
+The navbar is anchored to the top of the page, providing effortless navigation throughout the site. It features a concise set of essential links, including:
+
+Home page
+About page
+Login/Logout page
+Register page
+This design ensures that users can quickly access key sections of the website, enhancing overall usability and user experience
+
+<details><summary>Navbar</summary>
+
+![navbar](static/images/navbar.png)
 </details>

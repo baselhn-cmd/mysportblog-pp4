@@ -28,17 +28,13 @@
 
                             <hr />
                             <p class="card-text text-muted h6">
-                                {{ post.created_on }} <i class="far fa-heart"></i> {{ post.number_of_likes }}
-
+                                {{ post.created_on}}
+                                <i class="far fa-heart"></i>
+                                {{ post.number_of_likes }}
                                 {% if request.user.is_superuser %}
                                 <small class="ml-3">
                                     <a href="{% url 'edit_post' post.slug %}">Edit</a> |
                                     <a class="text-danger" href="{% url 'delete_post' post.slug %}">Delete</a>
-                                </small>
-                                {% elif user.is_authenticated and user.id == post.blogger.id %}
-                                <small class="ml-3">
-                                    <a href="{% url 'edit_post' post.pk %}">Edit</a> |
-                                    <a class="text-danger" href="{% url 'delete_post' post.pk %}">Delete</a>
                                 </small>
                                 {% endif %}
                             </p>
