@@ -101,7 +101,7 @@ body {
 
 .post-link {
     text-decoration: none;
-    color: #445261;
+    color: #003a77;
 }
 
 .post-link:hover,
@@ -143,7 +143,7 @@ body {
 }
 
 .btn-like {
-    color: #E84610;
+    color: #ff0000;
     border: none;
     background: transparent;
 }
@@ -155,7 +155,7 @@ body {
 
 .btn-like:hover,
 .btn-like:active {
-    color: #E84610;
+    color: #fc0000;
     background: transparent;
     border: none;
 }

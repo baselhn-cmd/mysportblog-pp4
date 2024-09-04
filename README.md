@@ -257,3 +257,8 @@ While testing the site, I discovered contrast errors that were not apparent duri
 
 - Wave 
 
+<details><summary>Wave</summary>
+
+![wave](static/images/wave2.png)
+</details>
+
