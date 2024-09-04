@@ -87,13 +87,18 @@ class EditPost(generic.UpdateView):
         slug = self.kwargs.get('slug')
         return get_object_or_404(Post, slug=slug)
 
-class DeletePost(generic.DeleteView):
-    model = Post
-    template_name = 'blog/delete_post.html'
-    success_url = reverse_lazy('home')
-    
-    def get_object(self, queryset=None):
-        slug = self.kwargs.get('slug')
+@login_required
+def delete_post(request, slug, *args, **kwargs):
+    if not request.user.is_superuser and request.user != post.blogger:
+        messages.error(request, 'Sorry, only admin or the post owner can do that.')
+        return redirect(reverse('home'))
+
+    post = get_object_or_404(Post, slug=slug)
+    if request.method == "POST":
+        post.delete()
+        messages.success(request, 'Post deleted!')
+        return redirect(reverse('home'))
+    return render(request, 'blog/delete_post.html', {'post': post})
 
 class PostLike(LoginRequiredMixin, View):
     def post(self, request, slug, *args, **kwargs):
