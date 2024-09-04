@@ -262,3 +262,4 @@ While testing the site, I discovered contrast errors that were not apparent duri
 ![wave](static/images/wave2.png)
 </details>
 
+### Django Testing
