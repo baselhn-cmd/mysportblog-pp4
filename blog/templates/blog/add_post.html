@@ -1,24 +1,41 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends "base.html" %}
 {% load crispy_forms_tags %}
-
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-12 col-md-8 my-5">
-        {% if perms.blog.add_post %}
-        <div class="page-header">
-            <h1>Add Post</h1>
+<section id="edit-post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mt-3 offset-md-2">
+                <h2>Add Post</h2>
+                <p>Please use form in desktop mode</p>
+            </div>
         </div>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.media }}
-            {{ form|crispy }}
-            <button class="btn btn-primary" type="submit">Post</button>
-        </form>
-        <br>
+        <div class="row">
+            <div class="col-md-8 mt-3 offset-md-2">
+                <form method="POST" action="{% url 'add_post' %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    {% if field.name != 'image' %}
+                    {{ field | as_crispy_field }}
+                    {% else %}
+                    {{ field }}
+                    {% endif %}
+                    {% endfor %}
+                    <div class="text-right mt-4">
+                        <a class="btn btn-signup" href="{% url 'home' %}">Cancel</a>
+                        <button class="btn btn-signup" type="submit">Add Post &raquo;</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    {% else %}
-    Access denied.
-    {% endif %}
-</div>
-{% endblock content %}
+</section>
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+<script>
+    $('#new-image').change(function () {
+        var file = $('#new-image')[0].files[0];
+        $('#filename').text(`Image will be set to: ${file.name}`);
+    });
+</script>
+{% endblock %}
