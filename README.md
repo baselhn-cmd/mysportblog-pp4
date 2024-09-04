@@ -263,3 +263,8 @@ While testing the site, I discovered contrast errors that were not apparent duri
 </details>
 
 ### Django Testing
+
+<details><summary>Django TEST</summary>
+
+![Django test](static/images/test.test.png)
+</details>
