@@ -268,3 +268,13 @@ While testing the site, I discovered contrast errors that were not apparent duri
 
 ![Django test](static/images/test.test.png)
 </details>
+
+### Automated Testing
+
+<details><summary>Html Checker</summary>
+
+![Html Checker](static/images/checker.png)
+</details>
+
+
+![python linter](static/images/ci-linter-pass.png)
