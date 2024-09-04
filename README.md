@@ -105,3 +105,19 @@ This design ensures that users can quickly access key sections of the website, e
 
 ![navbar](static/images/navbar.png)
 </details>
+
+- Login Status 
+
+A prominent banner, situated below the navigation buttons, dynamically displays the user's login status, clearly indicating whether they are:
+
+Logged in
+Not logged in
+This intuitive feature keeps users informed about their current login state, ensuring a seamless and personalized experience on the site.
+
+<details><summary>Login Status</summary>
+
+![Status](static/images/status2.png)
+![Status](static/images/status3.png)
+</details>
+
+- About Page This site talking about the developer 
