@@ -37,19 +37,19 @@ Stay ahead of the game with My Sport Blog News, your go-to source for the latest
 ![Wireframe Home](static/images/home1.png)
 </details>
 
-<details><summary>Wireframe Products</summary>
+<details><summary>Wireframe Sign Up</summary>
 
 ![Wireframe Signup](static/images/signup1.png)
 </details>
 
-<details><summary>Wireframe profile</summary>
+<details><summary>Wireframe Login</summary>
 
-![Wireframe profile](/media/wire3.png)
+![Wireframe Profile](static/images/login1.png)
 </details>
 
-<details><summary>Wireframe Product Detail</summary>  
+<details><summary>Wireframe About</summary>  
 
-![Product Detail](/media/wire4.png)
+![Product About](static/images/about.png)
 </details> 
 
 ## Post and Comment Relationship Diagram
