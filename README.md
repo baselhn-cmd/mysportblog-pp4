@@ -72,3 +72,14 @@ Stay ahead of the game with My Sport Blog News, your go-to source for the latest
 </details>
 
 ## User Stories
+
+- As a site user, I can view a paginated list of posts so that I can select which post I want to view.
+- As a Site User / Admin, I can view comments on an individual post so that I can read the conversation.
+- As a Site User I can register an account so that I can comment on a post.
+- As a Site User I can leave comments on a post so that I can interact with the listings
+- As a Site User I can modify or delete my comment on a post.
+- As a Site Admin I can create, read, update and delete posts so that I can manage the listings.
+- As a Site Admin I can create draft posts so that I can finish writing the content later.
+- As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments.
+
+## Features
