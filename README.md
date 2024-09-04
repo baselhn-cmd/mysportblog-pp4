@@ -121,3 +121,73 @@ This intuitive feature keeps users informed about their current login state, ens
 </details>
 
 - About Page This site talking about the developer 
+
+- Register Page
+
+<details><summary>Register</summary>
+
+![regestration](static/images/regestration.png)
+</details>
+
+- Login Page
+
+<details><summary>Login</summary>
+
+![login](static/images/login.png)
+</details>
+
+- Logout Page
+
+![logout](static/images/logout.png)
+
+## Technologies Used
+
+- HTML - The project uses HTML to create the structure of the site.
+- CSS - The project uses CSS to style the site.
+- JavaScript - JavaScript was used to link the buttons to functionality
+- Python - The project uses Python to create the backend of the site.
+- Django - The project uses Django as the web framework.
+- Heroku - The project is deployed on Heroku.
+- Git - The project uses Git for version control.
+- GitHub - The project uses GitHub to store the code and to plan the project.
+- Postgres - The project uses Postgres as the database.
+- Bootstrap - The project uses Bootstrap to style the site.
+- Google Fonts - The project uses Google Fonts to import the font used in the site.
+- ElephantSQL - The project uses ElephantSQL to host the database.
+- Draw.io - The project uses Draw.io to create the wireframe.
+- Cloudinary - The project uses Cloudinary to host the images.
+
+## Future Features
+
+- The next feature of the site will be like the post i´m working on but it´s not done yet
+
+Setting Up Django: A Step-by-Step Guide
+
+To set up Django for my site, I followed these steps:
+
+Installation of Required Packages
+I installed the necessary packages, including Django, Gunicorn, Psycopg2, Django Heroku, Django Crispy Forms, Pillow, Cloudinary, DJ Database URL, and Whitenoise.
+
+Creating a New Django Project and App
+Next, I created a new Django project and app, laying the foundation for my site.
+
+Database Setup and Superuser Creation
+I migrated the database and created a superuser to manage the site's admin tasks.
+
+Configuration Files
+I created a Procfile and a requirements.txt file, which are essential for deploying the app on Heroku.
+
+Admin Account and Models
+I created an admin account and defined the models for the site, then migrated the database again to apply the changes.
+
+Database Hosting and Connection
+I used Elephantsql to host the database and connected it to the site using a newly created instance. The DJ Database URL package helped link the database to the site.
+
+Views, URLs, Templates, and Static Files
+I created the views and URLs for the site, followed by the templates and static files.
+
+Forms and Heroku Deployment
+I created the forms for the site and then logged into Heroku to create a new app. I linked the app to my code base via GitHub and deployed it early to monitor for any bugs during the build process. By redeploying the app, I ensured everything was working as expected.
+
+Config Vars and Final Touches
+Finally, I added the necessary config vars to Heroku to connect the database and Cloudinary image hosting, completing the setup process.
