@@ -276,5 +276,36 @@ While testing the site, I discovered contrast errors that were not apparent duri
 ![Html Checker](static/images/checker.png)
 </details>
 
+<details><summary>Python linter</summary>
 
-![python linter](static/images/ci-linter-pass.png)
+![python linter](static/images/ciliner.png)
+</details>
+
+
+## Credits
+
+### Content
+
+- The content for this site was inspired by the Code Institute Django project "I think therefore I blog".
+- The posts and news in blog taken from [Thesun](https://www.thesun.co.uk/) and [News](https://www.news.com.au/).
+
+### Media
+
+- The images used in this site were obtained from [Thesun](https://www.thesun.co.uk/) and [News](https://www.news.com.au/).
+- Font - The font I used called Madina One was obtained from [Google Fonts](https://fonts.google.com/).
+- Data storage - The data for this site is managed using [ElephantSQL](https://www.elephantsql.com/).
+
+### Libraries & Frameworks
+
+- The site uses the [Django web framework](https://www.djangoproject.com/).
+- The site uses the [Bootstrap framework](https://getbootstrap.com/).
+
+### Acknowledgements
+
+- I would like to thank my mentor Mo Shami for his help and guidance throughout the project.
+
+- 
+
+- I would like to thank the Code Institute for the educational material and and support throughout the project.
+
+- Big Thank to Sarah and Sean in Tutor Assistance for the great helping.
