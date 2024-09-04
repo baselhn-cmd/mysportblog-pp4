@@ -6,9 +6,12 @@ body {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: #4A4A4F;
+    color: #0303b3;
 }
 
+.text-primary {
+    color: #0303b3
+}
 .red-o {
     color: #E84610;
 }

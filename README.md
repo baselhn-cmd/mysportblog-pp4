@@ -246,3 +246,14 @@ In the deploy section, I manually deployed the app and closely monitored the bui
 | Sign Out | User can sign out | Sign out successfully and asked to confirm | User could sign out once they confirmed that was their intention. **PASS**|
 
 ## Bugs
+
+During the deployment process, I encountered several bugs that needed to be addressed to ensure the site's usability and accessibility.
+
+- Background Color Issue
+Initially, the deployed site's header and footer were not displaying the correct background color, making the text difficult to read. I resolved this issue by altering the CSS, implementing a color via Bootstrap, and collecting the static files again.
+
+- Contrast Errors
+While testing the site, I discovered contrast errors that were not apparent during the development process. A Wave report highlighted these issues, and I addressed them by changing the color scheme of the site to be more readable and inclusive.
+
+- Wave 
+
