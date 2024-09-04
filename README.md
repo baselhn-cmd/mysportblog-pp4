@@ -56,10 +56,19 @@ Stay ahead of the game with My Sport Blog News, your go-to source for the latest
 
 - Initial plan
 
-![post and comment relationship model](static/images/post:comment_relationship.png)
+<details><summary>Post and comment relationship model</summary>
+
+![post and comment relationship model](static/images/post_comment_relationship.png)
+</details>
+
+<details><summary>Post Model</summary>
 
 ![post model](static/images/post-model.png)
+</details>
+
+<details><summary>Comment Model</summary>
 
 ![comment model](static/images/comment-model.png)
+</details>
 
 ## User Stories
