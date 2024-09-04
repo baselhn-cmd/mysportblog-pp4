@@ -1,15 +1,8 @@
 from django.test import TestCase
-from .forms import ContactForm
+from .forms import CollaborateForm
+
 
 class TestContactForm(TestCase):
-
-    # def test_form_is_valid(self):
-    #     contact_form = ContactForm({
-    #         'name': '',
-    #         'email': 'test@test.com',
-    #         'message': 'Message'
-    #     })
-    #     self.assertTrue(contact_form.is_valid(), msg="Form is invalid")
 
         def test_form_is_valid(self):
             contact_form = ContactForm({

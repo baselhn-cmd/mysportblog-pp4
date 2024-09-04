@@ -83,3 +83,11 @@ Stay ahead of the game with My Sport Blog News, your go-to source for the latest
 - As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments.
 
 ## Features
+
+- Pagination - The posts are paginated so that the user can view 6 posts per page. There is a link to the next page at the bottom of the page. When the user is not on the first page of listings, there is a link to the previous page.
+
+<details><summary>Pagination</summary>
+
+![Pagination](static/images/next.png)
+(static/images/prev.png)
+</details>
