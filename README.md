@@ -151,16 +151,16 @@ The project leverages a range of technologies to create a robust and scalable we
 HTML: Provides the structure and content of the site
 CSS: Styles the site using Bootstrap and Google Fonts
 JavaScript: Links buttons to functionality and enhances user interaction
-# Backend
+### Backend
 Python: Powers the backend of the site using Django as the web framework
 Deployment and Version Control
 Heroku: Hosts the application and provides a scalable infrastructure
 Git: Manages version control and tracks changes to the codebase
 GitHub: Stores the code and facilitates project planning and collaboration
-# Database
+### Database
 Postgres: Serves as the database management system for the project
 ElephantSQL: Hosts the database and provides a reliable storage solution
-# Design and Assets
+### Design and Assets
 Draw.io: Creates wireframes and visualizes the site's layout and design
 Cloudinary: Hosts images and provides a scalable media storage solution
 
@@ -198,3 +198,51 @@ I created the forms for the site and then logged into Heroku to create a new app
 
 Config Vars and Final Touches
 Finally, I added the necessary config vars to Heroku to connect the database and Cloudinary image hosting, completing the setup process.
+
+## Deploying to Heroku
+To deploy the app on Heroku, I followed these steps:
+
+- Creating a New Heroku App
+I started by creating a new app on Heroku, which would serve as the platform for hosting my application.
+
+- Linking to GitHub Repository
+Next, I connected the Heroku app to my GitHub repository, allowing me to manage my codebase and track changes.
+
+- Configuring Environment Variables
+I then added the necessary config vars to Heroku, which enabled me to connect the database and Cloudinary image hosting to the app.
+
+- Manual Deployment and Testing
+In the deploy section, I manually deployed the app and closely monitored the build process for any bugs or issues. By redeploying the app and verifying that everything was working as expected, I ensured a smooth and successful deployment.
+
+## Testing
+
+### Manual Testing
+
+|        Component     |       Test       |     Expected Result.      |           Actual Result         |
+|----------------------|------------------|---------------------------|---------------------------------|
+| Home page display as expected | Click on Home | Home page displayed | Home page with job listings and images visible. **PASS**  |
+| About page link working | Selected About link | About page to display | About page displayed. **PASS** |
+| About page displays | Click on About | About page to display as expected | About page displayed paragraph about the site and the table to contact admin. **PASS** |
+| Form to register interest | Fill in all form fields | Alert renders on admin about page | Alert appeared on admin and about page. **PASS** |
+| Form fields | Skip completing form fields | Alert to please fill in field.  | Alert appeared to fill in field. **PASS** |
+| Email form field | Fill in email in incorrect format | Alert to include @ in email | Alert appeared to include @ for email. **PASS** |
+| Work list display | Click on home | List of blog posts appears as 6 per page | List of work post displayed as 6 per page. **PASS** |
+| Next and Prev Buttons | Work as expected | Next brings to next page, prev brings to previous | Next brought to next page, previous brought to previous lisings. **PASS** |
+| Full Listing display | On click of listing title in blog list full listing display | Full listing displays | Full listing displayed. **PASS** |
+| Comment Counter | Scroll to comment section | Shows users a small graphic with number of comments | Displays correctly. **PASS** |
+| Log in Prompt | To display when not log in | Message display in like and comment to prompt a log in | Messaged displayed to visitor to log in to interact with post. **PASS** |
+| Like Log in Prompt Link Working | Link to sign in page working | User brought to sign in page when clicked | User is brought to log in page when link. **PASS** |
+| Comment | Site User can leave a comment | User can leave a comment and receive confirmation | Member placed comment and received notification that comment is awaiting approval. **PASS** |
+| Not logged in Comment | If not logged in cannot comment | Message displaying to prompt visitor to log in if they want to leave a comment | Message displayed to visitor to sign in to leave comment. **PASS** |
+| Comment Log in Link | Link working | On click of link user brought to sign in page | User clicked log in link and brought to log in page. **PASS** |
+| Edit Comment | Can only edit own comment | Only users own comment can be edited | User could only edit their comment and receive an alert to state they did so. **PASS** |
+| Delete Comment | Users can delete own comments | Users can delete comment once confirmation received | User could delete a comment they left once confirming they were happy to do so. **PASS** |
+| Sign Up Form | Working as expected | New user created as a result | All fields of form completed and new user created. **PASS** |
+| Log In Link on Sign Up page | Link working | On click log in link brings to log in page | User brought to log in page once clicked. **PASS** |
+| Sign In Field Validation | Field Validation | Alert user if field missed | Field missed on completing form and alert received to fill in missing field. **PASS** |
+| Password Validation | Password | Alert raised if criteria not met | Alert raised as a result of not matching password or too similar to user name. **PASS** |
+| Log In Form | Allows user to sign in | User can sign in and gain full functionality of blog | User signed in successfully when correct credentials supplied. **PASS** |
+| Sign Up Link on Log In Page | Link working | On click brought to sign up page | User brought to log in page once clicked. **PASS** |
+| Sign Out | User can sign out | Sign out successfully and asked to confirm | User could sign out once they confirmed that was their intention. **PASS**|
+
+## Bugs
