@@ -137,25 +137,32 @@ This intuitive feature keeps users informed about their current login state, ens
 </details>
 
 - Logout Page
+<details><summary>Login</summary>
 
 ![logout](static/images/logout.png)
+</details>
+
 
 ## Technologies Used
 
-- HTML - The project uses HTML to create the structure of the site.
-- CSS - The project uses CSS to style the site.
-- JavaScript - JavaScript was used to link the buttons to functionality
-- Python - The project uses Python to create the backend of the site.
-- Django - The project uses Django as the web framework.
-- Heroku - The project is deployed on Heroku.
-- Git - The project uses Git for version control.
-- GitHub - The project uses GitHub to store the code and to plan the project.
-- Postgres - The project uses Postgres as the database.
-- Bootstrap - The project uses Bootstrap to style the site.
-- Google Fonts - The project uses Google Fonts to import the font used in the site.
-- ElephantSQL - The project uses ElephantSQL to host the database.
-- Draw.io - The project uses Draw.io to create the wireframe.
-- Cloudinary - The project uses Cloudinary to host the images.
+The project leverages a range of technologies to create a robust and scalable web application. Here's a breakdown of the technologies used:
+
+# Frontend
+HTML: Provides the structure and content of the site
+CSS: Styles the site using Bootstrap and Google Fonts
+JavaScript: Links buttons to functionality and enhances user interaction
+# Backend
+Python: Powers the backend of the site using Django as the web framework
+Deployment and Version Control
+Heroku: Hosts the application and provides a scalable infrastructure
+Git: Manages version control and tracks changes to the codebase
+GitHub: Stores the code and facilitates project planning and collaboration
+# Database
+Postgres: Serves as the database management system for the project
+ElephantSQL: Hosts the database and provides a reliable storage solution
+# Design and Assets
+Draw.io: Creates wireframes and visualizes the site's layout and design
+Cloudinary: Hosts images and provides a scalable media storage solution
 
 ## Future Features
 
