@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import User, Permission
@@ -79,6 +79,7 @@ class AddPost(generic.CreateView):
 class EditPost(generic.UpdateView):
     model = Post
     template_name = 'blog/edit_post.html'
+    success_url = reverse_lazy('home')
     fields = (
         'title', 'slug', 'excerpt', 'content'
     )
@@ -89,6 +90,7 @@ class EditPost(generic.UpdateView):
 
 @login_required
 def delete_post(request, slug, *args, **kwargs):
+    post = get_object_or_404(Post, slug=slug)
     if not request.user.is_superuser and request.user != post.blogger:
         messages.error(request, 'Sorry, only admin or the post owner can do that.')
         return redirect(reverse('home'))
