@@ -304,8 +304,6 @@ While testing the site, I discovered contrast errors that were not apparent duri
 
 - I would like to thank my mentor Mo Shami for his help and guidance throughout the project.
 
-- 
-
 - I would like to thank the Code Institute for the educational material and and support throughout the project.
 
 - Big Thank to Sarah and Sean in Tutor Assistance for the great helping.
