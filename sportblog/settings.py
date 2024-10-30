@@ -32,10 +32,11 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = '(bhf0)62itfixae=07w7tc2zosf_i(r=u)%k%owl46xe$qa889'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["8000-baselhncmd-mysportblogp-d8y0zsk86yx.ws.codeinstitute-ide.net",
-                '.herokuapp.com',"8000-baselhncmd-mysportblogp-xst0ssx5nb0.ws.codeinstitute-ide.net"]
+                '.herokuapp.com',"8000-baselhncmd-mysportblogp-xst0ssx5nb0.ws.codeinstitute-ide.net",
+                "8000-baselhncmd-mysportblogp-0329r4qzccx.ws.codeinstitute-ide.net"]
 # ALLOWED_HOSTS = ['*']
 
 
