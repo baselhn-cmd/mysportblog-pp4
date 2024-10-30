@@ -1,15 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+<div style="height: 50vh; background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(4,4,195,1) 47%, rgba(22,11,103,1) 100%); display: flex; justify-content: center; align-items: center; flex-direction: column;">
+    <h1 style="color: #ffffff; font-size: 3rem;">My Sport Blog</h1>
+    <p style="color: #ffffff; font-size: 1.5rem;">"Believe you can and you're halfway there." - Theodore Roosevelt</p>
+</div>
 
-<div class="container-fluid px-0">
+
+<div class="container px-0">
     <div class="row">
 
-        <div class="col-12 mt-3 left">
+        <div class="col-12 mt-5 left">
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-4">
-                    <div class="card mb-4">
+                    <div class="card mb-4" style=" box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 8px; transition: transform 0.5s ease; transform: scale(1);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}

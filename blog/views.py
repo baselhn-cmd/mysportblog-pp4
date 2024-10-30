@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
@@ -67,19 +68,22 @@ def comment_delete(request, slug, comment_id):
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
-class AddPost(generic.CreateView):
+
+class AddPost(LoginRequiredMixin, generic.CreateView):
     model = Post
     form_class = PostForm
     template_name = 'blog/add_post.html'
+    login_url = 'account_login'
 
     def form_valid(self, form):
-        form.instance.blogger = self.request.user
+        form.instance.author = self.request.user
         return super().form_valid(form)
 
-class EditPost(generic.UpdateView):
+class EditPost(LoginRequiredMixin,generic.UpdateView):
     model = Post
     template_name = 'blog/edit_post.html'
     success_url = reverse_lazy('home')
+    login_url = 'account_login'
     fields = (
         'title', 'slug', 'excerpt', 'content'
     )
@@ -130,3 +134,5 @@ def add_post(request):
 def assign_add_post_permission(user):
     permission = Permission.objects.get(codename='add_post')
     user.user_permissions.add(permission)
+def custom_404_view(request, exception):
+    return render(request, '404.html', status=404)
