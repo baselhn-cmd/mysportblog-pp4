@@ -29,14 +29,14 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = '(bhf0)62itfixae=07w7tc2zosf_i(r=u)%k%owl46xe$qa889'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["8000-baselhncmd-mysportblogp-d8y0zsk86yx.ws.codeinstitute-ide.net",
-                '.herokuapp.com',"8000-baselhncmd-mysportblogp-xst0ssx5nb0.ws.codeinstitute-ide.net",
-                '8000-baselhncmd-mysportblogp-d7orar04qb4.ws.codeinstitute-ide.net']
+                '.herokuapp.com',"8000-baselhncmd-mysportblogp-xst0ssx5nb0.ws.codeinstitute-ide.net"]
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary_storage',
+    # 'cloudinary_storage',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -158,6 +158,8 @@ MESSAGE_TAGS = {
     messages.SUCCESS: 'alert-success',
     messages.ERROR: 'alert-danger',
 }
+LOGIN_URL = 'account_login'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
