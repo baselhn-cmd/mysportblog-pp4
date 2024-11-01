@@ -4,8 +4,9 @@ from .models import About
 from .forms import CollaborateForm
 
 # Create your tests here.
-class TestAboutView(TestCase):
 
+
+class TestAboutView(TestCase):
 
     def setUp(self):
         """Creates about me content"""
