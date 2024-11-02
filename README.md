@@ -34,7 +34,7 @@ Stay ahead of the game with My Sport Blog News, your go-to source for the latest
 
 <details><summary>Wireframe Home</summary> 
 
-![Wireframe Home](static/images/home1.png)
+![Wireframe Home](static/images/front1.png)
 </details>
 
 <details><summary>Wireframe Sign Up</summary>
