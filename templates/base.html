@@ -52,6 +52,14 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
+                        <a class="nav-link {% if request.path == about_url %}active" aria-current="page{% endif %}"
+                            href="{% url 'about' %}">About</a>
+                    </li>
+                    
+                    {% endif %}
+                    
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
                         <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}"
                             href="{% url 'account_logout' %}">Logout</a>
                     </li>

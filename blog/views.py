@@ -8,7 +8,7 @@ from .models import Post, Comment
 from .forms import CommentForm, PostForm
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 class PostList(generic.ListView):
@@ -86,7 +86,7 @@ class AddPost(LoginRequiredMixin, generic.CreateView):
         return super().form_valid(form)
 
 
-class EditPost(LoginRequiredMixin, generic.UpdateView):
+class EditPost(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Post
     template_name = 'blog/edit_post.html'
     success_url = reverse_lazy('home')
@@ -95,6 +95,27 @@ class EditPost(LoginRequiredMixin, generic.UpdateView):
         'title', 'slug', 'excerpt', 'content'
     )
 
+    def test_func(self):
+        post = self.get_object()
+        return post.author == self.request.user
+    
+    def handle_no_permission(self):
+        if not self.request.user.is_authenticated:
+            messages.add_message(
+                self.request,
+                messages.ERROR,
+                "You need to login"
+            )
+            return HttpResponseRedirect(reverse("account_login"))
+        post = self.get_object()
+        if post.author != self.request.user:
+            messages.add_message(
+                self.request,
+                messages.ERROR,
+                "You can only edit your own posts.",
+            )
+            return HttpResponseRedirect(reverse("home"))
+    
     def get_object(self, queryset=None):
         slug = self.kwargs.get('slug')
         return get_object_or_404(Post, slug=slug)
@@ -103,12 +124,11 @@ class EditPost(LoginRequiredMixin, generic.UpdateView):
 @login_required
 def delete_post(request, slug, *args, **kwargs):
     post = get_object_or_404(Post, slug=slug)
-    if not request.user.is_superuser and request.user != post.blogger:
+    if not request.user.is_superuser and request.user != post.author:
         messages.error(request,
                         'Sorry, only admin or the post owner can do that.')
         return redirect(reverse('home'))
 
-    post = get_object_or_404(Post, slug=slug)
     if request.method == "POST":
         post.delete()
         messages.success(request, 'Post deleted!')
@@ -125,28 +145,6 @@ class PostLike(LoginRequiredMixin, View):
             post.likes.add(request.user)
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
-
-@login_required
-@permission_required('blog.add_post', raise_exception=True)
-def add_post(request):
-    if request.method == "POST":
-        form = PostForm(request.POST, request.FILES)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.blogger = request.user
-            post.save()
-            messages.add_message(request, messages.SUCCESS,
-                                    'Post added successfully!')
-            return HttpResponseRedirect(reverse('home'))
-    else:
-        form = PostForm()
-
-    return render(request, 'blog/add_post.html', {'form': form})
-
-
-def assign_add_post_permission(user):
-    permission = Permission.objects.get(codename='add_post')
-    user.user_permissions.add(permission)
 
 
 def custom_404_view(request, exception):
