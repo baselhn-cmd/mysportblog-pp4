@@ -98,7 +98,7 @@ class EditPost(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     def test_func(self):
         post = self.get_object()
         return post.author == self.request.user
-    
+
     def handle_no_permission(self):
         if not self.request.user.is_authenticated:
             messages.add_message(
@@ -115,7 +115,7 @@ class EditPost(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
                 "You can only edit your own posts.",
             )
             return HttpResponseRedirect(reverse("home"))
-    
+
     def get_object(self, queryset=None):
         slug = self.kwargs.get('slug')
         return get_object_or_404(Post, slug=slug)
@@ -144,7 +144,6 @@ class PostLike(LoginRequiredMixin, View):
         else:
             post.likes.add(request.user)
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
-
 
 
 def custom_404_view(request, exception):
